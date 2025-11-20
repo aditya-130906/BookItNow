@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { apiCall } from '../utils/api';
 import '../styles/HotelDetails.css';
 
 const HotelDetails = () => {
@@ -16,7 +17,7 @@ const HotelDetails = () => {
     useEffect(() => {
         const fetchHotel = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/hotels/${id}`);
+                const response = await apiCall(`/hotels/${id}`);
                 const data = await response.json();
                 setHotel(data);
             } catch (error) {
