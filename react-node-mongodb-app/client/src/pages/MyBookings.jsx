@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { apiCall } from '../utils/api';
 import '../styles/MyBookings.css';
 
 const MyBookings = () => {
@@ -16,11 +17,7 @@ const MyBookings = () => {
 
         const fetchBookings = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/bookings', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                    },
-                });
+                const response = await apiCall('/bookings');
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch bookings');
@@ -39,17 +36,13 @@ const MyBookings = () => {
     }, [navigate]);
 
     const handleCancelBooking = async (bookingId) => {
-        const token = localStorage.getItem('token');
         if (!window.confirm('Are you sure you want to cancel this booking?')) {
             return;
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/api/bookings/${bookingId}/cancel`, {
+            const response = await apiCall(`/bookings/${bookingId}/cancel`, {
                 method: 'PUT',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
             });
 
             if (!response.ok) {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { apiCall } from '../utils/api';
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -28,11 +29,8 @@ const Contact = () => {
         setSuccess('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/reviews', {
+            const response = await apiCall('/reviews', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
                 body: JSON.stringify(formData),
             });
 

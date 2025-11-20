@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import { apiCall } from '../utils/api';
 import '../styles/Checkout.css';
 
 const Checkout = () => {
@@ -57,12 +58,8 @@ const Checkout = () => {
                 specialRequests: formData.specialRequests,
             };
 
-            const response = await fetch('http://localhost:5000/api/bookings', {
+            const response = await apiCall('/bookings', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
                 body: JSON.stringify(bookingPayload),
             });
 

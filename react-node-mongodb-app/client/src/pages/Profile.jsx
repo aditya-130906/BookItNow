@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { apiCall } from '../utils/api';
 import '../styles/Profile.css';
 
 const Profile = () => {
@@ -27,11 +28,7 @@ const Profile = () => {
 
         const fetchProfile = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/auth/profile', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                    },
-                });
+                const response = await apiCall('/auth/profile');
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch profile');
@@ -61,17 +58,12 @@ const Profile = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = localStorage.getItem('token');
         setSuccess('');
         setError('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/profile', {
+            const response = await apiCall('/auth/profile', {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
                 body: JSON.stringify(formData),
             });
 
