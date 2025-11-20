@@ -71,7 +71,7 @@ const Checkout = () => {
                 throw new Error(error.message || 'Booking failed');
             }
 
-            const booking = await response.json();
+            await response.json();
             alert('Booking successful!');
             navigate('/my-bookings');
         } catch (error) {
