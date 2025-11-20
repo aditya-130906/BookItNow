@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
+import { apiCall } from '../utils/api';
 import '../styles/Hotels.css';
 
 const Hotels = () => {
@@ -17,7 +18,7 @@ const Hotels = () => {
         setLoading(true);
         try {
             const query = new URLSearchParams(filterParams).toString();
-            const response = await fetch(`http://localhost:5000/api/hotels?${query}`);
+            const response = await apiCall(`/hotels?${query}`);
             const data = await response.json();
             setHotels(data);
         } catch (error) {
