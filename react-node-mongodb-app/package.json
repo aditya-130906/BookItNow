@@ -10,9 +10,11 @@
     "install": "npm install --prefix client && npm install --prefix server"
   },
   "dependencies": {
-    "concurrently": "^6.0.0"
+    "bcryptjs": "^3.0.3",
+    "concurrently": "^6.0.0",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^9.0.2"
   },
-  "devDependencies": {},
   "author": "",
   "license": "ISC"
 }
