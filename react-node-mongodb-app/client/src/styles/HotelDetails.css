@@ -1,0 +1,220 @@
+.hotel-details-page {
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 200px);
+}
+
+.hotel-header {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.hotel-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header-overlay h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-overlay .location {
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+.details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+}
+
+.main-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.description-section,
+.amenities-section,
+.rating-section {
+    margin-bottom: 3rem;
+}
+
+.description-section:last-child,
+.amenities-section:last-child,
+.rating-section:last-child {
+    margin-bottom: 0;
+}
+
+.amenities-section h2,
+.rating-section h2,
+.description-section h2 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.amenity-icon {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.rating-display {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.rating-score {
+    display: block;
+    font-size: 2rem;
+    color: #f39c12;
+    margin-bottom: 0.5rem;
+}
+
+.review-count {
+    display: block;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.booking-sidebar {
+    height: fit-content;
+    position: sticky;
+    top: 80px;
+}
+
+.booking-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-card h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.booking-card .price {
+    font-size: 1.5rem;
+    color: #f39c12;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.book-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #27ae60;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+    background-color: #229954;
+}
+
+.description-section p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .hotel-header {
+        height: 250px;
+    }
+
+    .header-overlay {
+        padding: 1.5rem 1rem;
+    }
+
+    .header-overlay h1 {
+        font-size: 1.8rem;
+    }
+
+    .details-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .booking-sidebar {
+        position: relative;
+        top: auto;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .amenities-grid {
+        grid-template-columns: 1fr;
+    }
+}
